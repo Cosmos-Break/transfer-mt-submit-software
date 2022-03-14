@@ -1,17 +1,15 @@
 import os
-import math
 import time
 import torch
-import random
 import sys
 import numpy as np
-import pandas as pd
 from datasets import load_dataset
 from torch.utils.data import DataLoader
-from tokenizers import ByteLevelBPETokenizer
 import subprocess
 
 lang = sys.argv[1]
+device = sys.argv[2]
+
 directory = f'{lang}-en-data'
 def create_translation_data(
     source_input_path: str,
@@ -191,11 +189,8 @@ def pad_sequences(sequences, max_length, pad_token_id):
 
     return padded_sequences
 
-from transformers import AutoModelForSeq2SeqLM
-
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = torch.device(device)
 pretrained_model = torch.load('opus-mt-de-en/pytorch_model_concat_emb.bin').to(device)
-# pretrained_model = AutoModelForSeq2SeqLM.from_pretrained(model_checkpoint).to(device)
 print('# of parameters: ', pretrained_model.num_parameters())
 
 # modules = [pretrained_model.model.decoder, pretrained_model.lm_head, pretrained_model.model.shared, pretrained_model.model.encoder.embed_tokens]
@@ -234,6 +229,11 @@ from transformers import (
     Seq2SeqTrainer
 )
 batch_size = 32
+if pretrained_model.device.type == 'cpu':
+    fp16 = False
+else:
+    fp16 = True
+
 args = Seq2SeqTrainingArguments(
     output_dir=checkpoint_path,
     evaluation_strategy="steps",
@@ -246,7 +246,7 @@ args = Seq2SeqTrainingArguments(
     load_best_model_at_end=True,
     predict_with_generate=True,
     remove_unused_columns=True,
-    fp16=True,
+    fp16=fp16,
     gradient_accumulation_steps=2,
     eval_steps=500,
     warmup_steps=100,
@@ -275,38 +275,4 @@ trainer = Seq2SeqTrainer(
 
 # trainer_output = trainer.train('/content/drive/Shareddrives/Aria3/my-checkpoint-token-match-random-avg_emb_all_dataAUG/checkpoint-5500')
 trainer_output = trainer.train()
-
-for checkpoint in os.listdir(checkpoint_path):
-    if 'checkpoint-' in checkpoint:
-        print(checkpoint)
-        # if int(checkpoint.split('-')[1]) < 6500:
-        #     continue
-        PATH = f'{checkpoint_path}/{checkpoint}/pytorch_model.bin'
-        print(PATH)
-        pretrained_model.load_state_dict(torch.load(PATH), strict=False)
-        data_collator = Seq2SeqDataCollator(max_source_length, pad_token_id, pad_token_id)
-        data_loader = DataLoader(tokenized_dataset_dict['test'], collate_fn=data_collator, batch_size=32, shuffle=True)
-        target_list = []
-        prediction_list = []
-        for example in data_loader:
-            input_ids = example['input_ids']
-            # input_ids = torch.LongTensor(input_ids).to(model.device)
-            # input_ids = torch.LongTensor([item.cpu().detach().numpy() for item in input_ids]).to(pretrained_model.device)
-            # print('input_ids: ', input_ids)
-            generated_ids = pretrained_model.generate(input_ids.to(pretrained_model.device))
-            generated_ids = generated_ids.detach().cpu().numpy()
-            predictions = pretrained_tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
-
-            labels = example['labels'].detach().cpu().numpy()
-            targets = pretrained_tokenizer.batch_decode(labels, skip_special_tokens=True)
-            target_list += targets
-            prediction_list += predictions
-        
-        with open(f'{PATH}-target', 'w') as f:
-            for line in target_list:
-                f.write(line + '\n')
-        with open(f'{PATH}-prediction', 'w') as f:
-            for line in prediction_list:
-                f.write(line + '\n')
-        
-        subprocess.run(f'python eval_Generation.py -R {PATH}-target -H {PATH}-prediction -nr 1 -m bleu', shell=True)
+torch.save(pretrained_model, f'opus-mt-de-en/pytorch_model_concat_emb_best_{lang}.bin')
