@@ -1,45 +1,8 @@
-Using custom data configuration default-89c49e1de10f796e
-Downloading and preparing dataset csv/default to /root/.cache/huggingface/datasets/csv/default-89c49e1de10f796e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff...
-  0%|          | 0/3 [00:00<?, ?it/s]100%|██████████| 3/3 [00:00<00:00, 11748.75it/s]
-  0%|          | 0/3 [00:00<?, ?it/s]100%|██████████| 3/3 [00:00<00:00, 917.46it/s]
-0 tables [00:00, ? tables/s]/root/miniconda3/lib/python3.9/site-packages/pandas/util/_decorators.py:311: ParserWarning: Falling back to the 'python' engine because the 'c' engine does not support regex separators (separators > 1 char and different from '\s+' are interpreted as regex); you can avoid this warning by specifying engine='python'.
-  return func(*args, **kwargs)
-2 tables [00:00, 13.72 tables/s]                                0 tables [00:00, ? tables/s]                            0 tables [00:00, ? tables/s]                            Dataset csv downloaded and prepared to /root/.cache/huggingface/datasets/csv/default-89c49e1de10f796e/0.0.0/9144e0a4e8435090117cea53e6c7537173ef2304525df4a077c435d8ee7828ff. Subsequent calls will reuse this data.
-  0%|          | 0/3 [00:00<?, ?it/s]100%|██████████| 3/3 [00:00<00:00, 123.55it/s]
-2022-03-14 23:39:40.029627: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-03-14 23:39:40.029708: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-PreTrainedTokenizer(name_or_path='opus-mt-de-en', vocab_size=58101, model_max_len=512, is_fast=False, padding_side='right', special_tokens={'eos_token': '</s>', 'unk_token': '<unk>', 'pad_token': '<pad>'})
-<sentencepiece.SentencePieceProcessor; proxy of <Swig Object of type 'sentencepiece::SentencePieceProcessor *' at 0x7fcaf3cdd3f0> >
-  0%|          | 0/18082 [00:00<?, ?ex/s]  2%|▏         | 412/18082 [00:00<00:04, 4115.60ex/s]  5%|▌         | 913/18082 [00:00<00:03, 4639.76ex/s]  8%|▊         | 1377/18082 [00:00<00:03, 4476.17ex/s] 10%|█         | 1889/18082 [00:00<00:03, 4720.56ex/s] 13%|█▎        | 2362/18082 [00:00<00:03, 4703.48ex/s] 16%|█▌        | 2861/18082 [00:00<00:03, 4796.58ex/s] 18%|█▊        | 3342/18082 [00:00<00:03, 4605.83ex/s] 21%|██        | 3805/18082 [00:00<00:03, 4607.01ex/s] 24%|██▎       | 4267/18082 [00:00<00:03, 4477.39ex/s] 26%|██▌       | 4717/18082 [00:01<00:02, 4468.91ex/s] 29%|██▊       | 5165/18082 [00:01<00:02, 4456.42ex/s] 31%|███▏      | 5660/18082 [00:01<00:02, 4601.46ex/s] 34%|███▍      | 6121/18082 [00:01<00:02, 4568.42ex/s] 36%|███▋      | 6592/18082 [00:01<00:02, 4608.56ex/s] 39%|███▉      | 7054/18082 [00:01<00:02, 4521.35ex/s] 42%|████▏     | 7522/18082 [00:01<00:02, 3566.48ex/s] 44%|████▍     | 8000/18082 [00:01<00:02, 3818.97ex/s] 47%|████▋     | 8495/18082 [00:01<00:02, 4109.64ex/s] 50%|████▉     | 8996/18082 [00:02<00:02, 4350.51ex/s] 52%|█████▏    | 9451/18082 [00:02<00:01, 4394.86ex/s] 55%|█████▍    | 9934/18082 [00:02<00:01, 4518.20ex/s] 57%|█████▋    | 10397/18082 [00:02<00:01, 4507.70ex/s] 60%|██████    | 10867/18082 [00:02<00:01, 4561.71ex/s] 63%|██████▎   | 11329/18082 [00:02<00:01, 4512.49ex/s] 65%|██████▌   | 11815/18082 [00:02<00:01, 4613.36ex/s] 68%|██████▊   | 12280/18082 [00:02<00:01, 4579.22ex/s] 71%|███████   | 12790/18082 [00:02<00:01, 4730.20ex/s] 73%|███████▎  | 13266/18082 [00:02<00:01, 4737.10ex/s] 76%|███████▌  | 13773/18082 [00:03<00:00, 4834.24ex/s] 79%|███████▉  | 14258/18082 [00:03<00:00, 4763.70ex/s] 82%|████████▏ | 14752/18082 [00:03<00:00, 4815.00ex/s] 84%|████████▍ | 15235/18082 [00:03<00:00, 4749.98ex/s] 87%|████████▋ | 15721/18082 [00:03<00:00, 4782.28ex/s] 90%|████████▉ | 16200/18082 [00:03<00:00, 4617.84ex/s] 92%|█████████▏| 16664/18082 [00:03<00:00, 4239.15ex/s] 95%|█████████▍| 17095/18082 [00:03<00:00, 4000.64ex/s] 97%|█████████▋| 17501/18082 [00:03<00:00, 3987.14ex/s] 99%|█████████▉| 17905/18082 [00:04<00:00, 4000.92ex/s]100%|██████████| 18082/18082 [00:04<00:00, 4425.57ex/s]
-  0%|          | 0/1000 [00:00<?, ?ex/s] 45%|████▌     | 454/1000 [00:00<00:00, 4532.16ex/s] 95%|█████████▌| 951/1000 [00:00<00:00, 4787.60ex/s]100%|██████████| 1000/1000 [00:00<00:00, 4434.51ex/s]
-  0%|          | 0/1017 [00:00<?, ?ex/s] 38%|███▊      | 390/1017 [00:00<00:00, 3891.77ex/s] 80%|████████  | 818/1017 [00:00<00:00, 4114.07ex/s]100%|██████████| 1017/1017 [00:00<00:00, 3959.12ex/s]
-The following columns in the training set  don't have a corresponding argument in `MarianMTModel.forward` and have been ignored: en, my.
-***** Running training *****
-  Num examples = 18082
-  Num Epochs = 200
-  Instantaneous batch size per device = 32
-  Total train batch size (w. parallel, distributed & accumulation) = 64
-  Gradient Accumulation steps = 2
-  Total optimization steps = 56600
-# of parameters:  129758208
-  0%|          | 0/56600 [00:00<?, ?it/s]  0%|          | 1/56600 [00:20<315:40:07, 20.08s/it]Traceback (most recent call last):
-  File "/root/transfer-mt-submit-software/train.py", line 277, in <module>
-    trainer_output = trainer.train()
-  File "/root/miniconda3/lib/python3.9/site-packages/transformers/trainer.py", line 1284, in train
-    tr_loss += self.training_step(model, inputs)
-  File "/root/miniconda3/lib/python3.9/site-packages/transformers/trainer.py", line 1789, in training_step
-    loss = self.compute_loss(model, inputs)
-  File "/root/miniconda3/lib/python3.9/site-packages/transformers/trainer.py", line 1821, in compute_loss
-    outputs = model(**inputs)
-  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/root/miniconda3/lib/python3.9/site-packages/transformers/models/marian/modeling_marian.py", line 1298, in forward
-    masked_lm_loss = loss_fct(lm_logits.view(-1, self.config.vocab_size), labels.view(-1))
-  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/modules/loss.py", line 1120, in forward
-    return F.cross_entropy(input, target, weight=self.weight,
-  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py", line 2824, in cross_entropy
-    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index)
-KeyboardInterrupt
-  0%|          | 1/56600 [00:32<504:30:08, 32.09s/it]
+[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+ERROR: output file my-en.fwd exists, will not overwrite!
+2022-03-15 13:22:15.876998: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-03-15 13:22:15.877086: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+26755
+2022-03-15 13:23:43.661872: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-03-15 13:23:43.661966: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.

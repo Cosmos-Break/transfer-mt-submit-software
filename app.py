@@ -48,7 +48,11 @@ def upload():
         print(lang)
         if not lang:
             return '请选择语种'
-        print(request.files)
+        transfer = request.values.get('transfer')
+        if transfer == 'transfer':
+            subprocess.run(f'python3 transfer.py {lang} > log 2>&1', shell=True)
+            return render_template('upload.html')
+        
         if 'file_train_lang' in request.files:
             f = request.files['file_train_lang']
             f.save(secure_filename(f'{lang}-en-data/train.{lang}'))

@@ -21,10 +21,10 @@
 <body>
   <div class="content">
     <form action="http://localhost:5000/" method="POST" enctype="multipart/form-data">
-        在程序训练和测试模型之前，需要下载所需的预训练模型，以及进行词嵌入迁移<br>
+        在程序训练和测试模型之前，需要下载所需的预训练模型，以及训练分词器<br>
         选择操作：<br>
-        <input type="radio" name="operation" value="download">下载预训练模型<br>
-        <input type="radio" name="operation" value="upload">训练/测试文件上传<br>
+        <input type="radio" name="operation" value="download">下载预训练模型，以及训练分词器<br>
+        <input type="radio" name="operation" value="upload">训练/测试文件上传，以及进行词嵌入迁移<br>
         <input type="radio" name="operation" value="train">训练/测试模型<br>
         <input type="submit" value="提交" /><br>
         <br>
